@@ -1,0 +1,604 @@
+
+/*------------------------------------------------
+	GENERALS / DEFAULTS
+-------------------------------------------------*/
+
+$blue: #009fe3;
+$yellow: #ffed00;
+$red: #ce222c;
+$darkblue: #143b62;
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mumtype-html {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "icons";
+  src: url("Custom/Source/images/appius/icons/icons.eot");
+  src: url("Custom/Source/images/appius/icons/icons.eot?#iefix") format("eot"), url("Custom/Source/images/appius/icons/icons.woff2") format("woff2"), url("Custom/Source/images/appius/icons/icons.woff") format("woff"), url("Custom/Source/images/appius/icons/icons.ttf") format("truetype"), url("Custom/Source/images/appius/icons/icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "VAG Rounded W01 Light";
+  src: url("Custom/Source/fonts/appius/8eb3a61c-2df5-402f-aacc-7733752abec6.eot?#iefix");
+  src: url("Custom/Source/fonts/appius/8eb3a61c-2df5-402f-aacc-7733752abec6.eot?#iefix") format("eot"), url("Custom/Source/fonts/appius/67ca5d86-3357-4491-aa9f-6e7ff54b2e2e.woff") format("woff"), url("Custom/Source/fonts/appius/888f8505-0e2c-41e8-af58-21279dda85e5.ttf") format("truetype"), url("Custom/Source/fonts/appiusca4650e2-5aa3-4755-9c6d-256cbb4f5115.svg#ca4650e2-5aa3-4755-9c6d-256cbb4f5115") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+@font-face {
+  font-family: "VAG Rounded W01 Bold";
+  src: url("Custom/Source/fonts/appius/e043dd77-7cee-4a3c-b628-822e3bdbc8ac.eot?#iefix");
+  src: url("Custom/Source/fonts/appius/e043dd77-7cee-4a3c-b628-822e3bdbc8ac.eot?#iefix") format("eot"), url("Custom/Source/fonts/appius/5b73c12f-4a5a-4d8c-81be-1babf4a3f3dd.woff") format("woff"), url("Custom/Source/fonts/appius/5638af5b-03a3-4601-a279-943ee3b29448.ttf") format("truetype"), url("Custom/Source/fonts/appius40964335-0b3a-4c89-895c-1e8f58438faa.svg#40964335-0b3a-4c89-895c-1e8f58438faa") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(/Custom/Source/fonts/appius/glyphicons-halflings-regular.eot);
+  src: url(/Custom/Source/fonts/appius/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/Custom/Source/fonts/appius/glyphicons-halflings-regular.woff2) format("woff2"), url(/Custom/Source/fonts/appius/glyphicons-halflings-regular.woff) format("woff"), url(/Custom/Source/fonts/appius/glyphicons-halflings-regular.ttf) format("truetype"), url(/Custom/Source/fonts/appius/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg"); }
+
+@font-face {
+  font-family: "Clarendon W01 Bold 692098";
+  src: url("/source/fonts/b1b2273f-6562-4dda-b82f-abe26a2801f3.eot?#iefix");
+  src: url("/source/fonts/b1b2273f-6562-4dda-b82f-abe26a2801f3.eot?#iefix") format("eot"), url("/source/fonts/ebfb2d05-23eb-4096-b4d2-22382a87d76b.woff") format("woff"), url("/source/fonts/861c0548-44ff-4b2b-80a3-c8ae44cbe9c8.ttf") format("truetype"), url("/source/fonts/e6e6c27f-7ec8-47cc-844c-c72378fc634c.svg#e6e6c27f-7ec8-47cc-844c-c72378fc634c") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+@font-face {
+    font-family: 'bebasregular';
+    src: url('fonts/BEBAS___-webfont.eot');
+    src: url('fonts/BEBAS___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BEBAS___-webfont.woff') format('woff'),
+         url('fonts/BEBAS___-webfont.ttf') format('truetype'),
+         url('fonts/BEBAS___-webfont.svg#bebasregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.mumtype-wrap {
+  font-size: 16px;
+  font-family: VAG Rounded W01 Light;
+  background: #f3f5f6;
+}
+
+.mumtype-container {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  border: none;
+  background: $red;
+  color: #fff;
+  text-align: left;
+  font-family: VAG Rounded W01 Light;
+  box-shadow: 0 5px 0 darken($red, 15%);
+  padding: 12px 15px;
+  font-size: 1.2em;
+  position: relative;
+  transition: opacity .3s;
+  min-width: 200px;
+  border-radius: 7px;
+
+  &:after {
+    content: "\f105";
+    font: 1.2em FontAwesome;
+    color: #fff;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+  }
+
+  &.mumtype-back {
+    background: $darkblue;
+    padding-left: 36px;
+    box-shadow: 0 5px 0 darken($darkblue, 15%);
+  }
+
+  &.mumtype-back:after {
+    left: 15px;
+    content: "\f104";
+  }
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &[disabled] {
+    background: #555;
+    box-shadow: 0 5px 0 darken(#555, 15%);
+  }
+
+  &[disabled]:hover {
+    opacity: 1;
+  }
+}
+
+
+
+/*------------------------------------------------
+	HEADER
+-------------------------------------------------*/
+
+.mumtype-top-bar {
+  background: #fff;
+  padding: 10px;
+
+  .mumtype-container {
+    text-align: left;
+  }
+}
+
+.mumtype-header {
+	background: $blue;
+  font: 2.2em VAG Rounded W01 Bold;
+  color: #fff;
+  padding: 20px 20px 25px;
+
+  h1 {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  small {
+    color: $yellow;
+    font-size: .65em;
+    display: block;
+  }
+
+  span {
+    color: $yellow;
+  }
+
+  @media screen and (min-width: 500px) {
+    h1 {
+      max-width: 350px;
+      font-size: 1.2em;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    padding: 35px 0;
+
+    h1 {
+      max-width: 470px;
+      font-size: 1.6em;
+      line-height: 1.1;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    padding: 30px 0;
+
+    h1 {
+      max-width: 520px;
+      font-size: 1.7em;
+    }
+  }
+}
+
+
+
+/*------------------------------------------------
+  INTRO
+-------------------------------------------------*/
+
+.mumtype-intro-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.mumtype-intro {
+
+  .mumtype-top .mumtype-container {
+    max-width: 400px;
+  }
+
+  .mumtype-top {
+    padding-top: 20px;
+    background: -webkit-linear-gradient(90deg, $yellow 25%, transparent 25%),
+    url(images/mumtype-bg-pattern.jpg) #c6eeff;
+    background: linear-gradient(to top, $yellow 25%, transparent 25%),
+    url(images/mumtype-bg-pattern.jpg) #c6eeff;
+  }
+
+  .mumtype-bottom {
+    background: $blue;
+    padding: 30px 20px 50px;
+    color: #fff;
+  }
+
+  button {
+    margin-top: 20px;
+    font-size: 1.6em;
+    width: 100%;
+    max-width: 475px;
+    text-align: center;
+    padding: 17px 15px;
+    box-shadow: 0 6px 0 darken($red, 15%);
+    cursor: pointer;
+
+    &:after {
+      position: static;
+      margin-left: 10px;
+    }
+  }
+
+}
+
+
+
+/*------------------------------------------------
+  MAIN CONTENT
+-------------------------------------------------*/
+
+.mumtype-content {
+  position: relative;
+}
+
+.mumtype-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  z-index: -1;
+  transition: .5s;
+  visibility: hidden;
+
+  img {
+    display: block;
+  }
+
+  &.mumtype-intro {
+    position: static;
+  }
+
+  &.active {
+    opacity: 1;
+    z-index: 1;
+    visibility: visible;
+  }
+}
+
+.mumtype-top {
+  background: linear-gradient(to top, $yellow 26%, transparent 26%),
+    url(images/mumtype-bg-pattern.jpg) #c6eeff;
+  float: left;
+  width: 100%;
+}
+
+.mumtype-bottom {
+  background: #f1f3f4;
+  padding: 30px 20px 70px;
+  line-height: 1.35;
+  float: left;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    font-size: 1.05em;
+    line-height: 1.5;
+  }
+}
+
+.mumtype-intro + .mumtype-slide .mumtype-next {
+  float: none;
+}
+
+
+
+/*------------------------------------------------
+  QUESTION
+-------------------------------------------------*/
+
+.mumtype-q-wrap {
+  max-width: 700px;
+  width: 100%;
+  margin: 30px auto 0;
+}
+
+.mumtype-q {
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  float: left;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    margin-bottom: -50px;
+  }
+}
+
+.mumtype-q-top {
+  background: $yellow;
+  float: left;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.mumtype-q-bottom {
+  background: $blue;
+  color: #fff;
+  padding: 15px 15px 30px;
+  float: left;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    border-radius: 0 0 10px 10px;
+  }
+
+  p {
+    line-height: 1.4;
+    font-size: 1.1em;
+  }
+
+  input {
+    opacity: 0;
+    position: fixed;
+  }
+
+  label {
+    text-align: left;
+    font: .95em/1.4 VAG Rounded W01 Light;
+    border: none;
+    border-radius: 8px;
+    float: left;
+    width: 100%;
+    padding: 12px 20px 12px 60px;
+    margin: 15px 0 0;
+    display: inline-block;
+    color: $red;
+    background: #fff;
+    cursor: pointer;
+    transition: box-shadow .2s;
+    position: relative;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(#000, .3);
+    }
+
+    &:before {
+      content: "\f096";
+      font: 1.5em FontAwesome;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 17px 15px;
+      background: $red;
+      color: #fff;
+      border-radius: 8px 0 0 8px;
+      height: 100%;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    &:last-of-type {
+      margin-bottom: 20px;
+    }
+  }
+
+  input:checked + label {
+    color: #fff;
+    background: $red;
+
+    &:before {
+      content: "\f046";
+    }
+  }
+
+  .buttons {
+
+    @media screen and (min-width: 400px) {
+      width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  button {
+    min-width: 0;
+  }
+
+  .mumtype-back {
+    margin-right: 5px;
+    margin-bottom: 10px;
+    width: 35%;
+    float: left;
+    max-width: 105px;
+  }
+
+  .mumtype-next {
+    width: 60%;
+    float: right;
+    max-width: 225px;
+  }
+
+  @media screen and (min-width: 600px) {
+    padding: 35px 40px 40px;
+
+    p {
+      line-height: 1.5;
+      font-size: 1.2em;
+    }
+
+    input {
+      font-size: 3.2em;
+      margin: 30px 0 40px;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    p {
+      font-size: 1.25em;
+    }
+  }
+}
+
+/* Images */
+
+.mumtype-q-wrap { margin-top: 50px; }
+.mumtype-q-top img { margin-top: -30px; }
+
+@media screen and (min-width: 600px) {
+  .mumtype-q-wrap { margin-top: 80px; }
+  .mumtype-q-top img { margin-top: -50px; }
+}
+
+
+
+/*------------------------------------------------
+  RESULT
+-------------------------------------------------*/
+
+.mumtype-results {
+  display: none;
+
+  .mumtype-q-wrap {
+    @media screen and (min-width: 600px) {
+      margin-top: 140px;
+    }
+  }
+
+  .mumtype-q {
+    @media screen and (min-width: 700px) {
+      margin-bottom: 70px;
+    }
+  }
+}
+
+.mumtype-results.active {
+  position: static;
+  display: block;
+}
+
+.mumtype-results-img.mumtype-results-img {
+  margin: -20px auto 0;
+
+  @media screen and (min-width: 600px) {
+    margin: -120px auto 0;
+  }
+}
+
+.mumtype-results .copy {
+
+  p {
+    margin: 10px 0 20px;
+    font-size: 1em;
+    line-height: 1.45;
+  }
+
+  a {
+    color: $yellow;
+  }
+
+  @media screen and (min-width: 600px) {
+    p {
+      font-size: 1.1em;
+    }
+  }
+}
+
+.mumtype-result {
+  display: block;
+  font: 2.5em/1 VAG Rounded W01 Bold;
+}
+
+.mumtype-results .buttons {
+  margin: 15px auto 0;
+
+  > a {
+    display: inline-block;
+    transition: .3s;
+  }
+
+  a:hover {
+    opacity: .9;
+  }
+}
+
+.mumtype-value-breakdown {
+  font-family: VAG Rounded W01 Bold;
+
+  li {
+    padding: 6px 0;
+    display: inline-block;
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  @media screen and (min-width: 700px) {
+    padding: 0 20%;
+  }
+}
+
+.mumtype-again {
+  color: #fff;
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: underline;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+
+
+/*------------------------------------------------
+  BOTTOM BAR
+-------------------------------------------------*/
+
+.mumtype-bottom-bar.mumtype-bottom-bar {
+  background: #3c3c3b;
+  padding: 15px 1%;
+  float: left;
+  width: 100%;
+  font: .9em VAG Rounded W01 Light;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+  text-align: center;
+}
+
+.mumtype-bottom-bar a {
+  color: #ffed00;
+}
+
+.mumtype-bottom-bar a:hover {
+  color: $blue;
+}
+
+
+
+
+
+
+
+
+
+
+
